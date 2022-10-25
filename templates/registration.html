@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <Title>Satria</Title>
+        <link rel="icon" href="https://i.postimg.cc/dVFTFR6c/digital-key-icon-glitch-effect-login-symbol-wed-vector-35412206.jpg" type="image/png">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    </head>
+    <body>
+        <div class="form">
+            <h2>Registration</h2>
+            <form action="{{ url_for('registration') }}" method = "POST">
+                <div class="input">
+                    <div class="msg">{{ msg }}</div>
+                    <div class="inputBox">
+                        <label name="username">Username</label>
+                        <input type="text", name="username" required/>
+                    </div>
+                    <div class="inputBox">
+                        <label name="email">Email Address</label>
+                        <input type="text", name="email" required/>
+                    </div>
+                    <div class="inputBox">
+                        <label name="password">Password</label>
+                        <input type="password", name="password" required/>
+                    </div>
+                    <div class="form-check d-flex justify-content-center mb-5">
+                        <label class="forgot" for="form2Example3g">
+                          If you click Register, your agree all statements in <a href="#" class="text-body"><u>Terms of service</u></a>
+                        </label>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Register"> 
+                    </div>
+                </div>
+            </form>            
+            <p class="forgot">You already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        </div>
+        <script type="text/javascript" src="https://rawgit.com/maringngerrang/js/master/salju.js"></script> <script type="text/javascript"> snowStorm.snowColor = 'white'; snowStorm.flakesMaxActive = 150; snowStorm.useTwinkleEffect = true;</script>
+        
+    </body>
+</html>

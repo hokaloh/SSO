@@ -1,0 +1,4 @@
+*.text
+requirement.txt
+create_db.py
+models.py

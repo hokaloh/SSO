@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <Title>Satria</Title>
+        <link rel="icon" href="https://i.postimg.cc/dVFTFR6c/digital-key-icon-glitch-effect-login-symbol-wed-vector-35412206.jpg" type="image/png">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    </head>
+    <body>
+        <div class="form">
+            <h2>Satria</h2>
+            <form action="{{ url_for('login') }}" method = "POST">
+                <div class="input">
+                    <div class="msg">{{ msg }}</div>
+                    <div class="inputBox">
+                        <label for="">Email</label>
+                        <input type="text", name = "email">
+                    </div>
+                    <div class="inputBox">
+                        <label for="">Password</label>
+                        <input type="password", name= "password">
+                    </div>
+                    <p class="forgot"><a href="#">Forgot Password?</a></p>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Sign In"> 
+                    </div>
+                </div>
+            </form>
+            
+            <p class="forgot">Not a member? <a href="{{ url_for('registration') }}">Signup now</a></p>
+            <div class="social">
+                <button onclick="window.location.href='https://www.google.com';"><i class="fa fa-google" aria-hidden="true"></i><p>Sign in with Google</p></button>
+                <button onclick="window.location.href='{{ git_uri }}';"><i class="fa fa-github" aria-hidden="true"></i><p>Sign in with Github</p></button>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://rawgit.com/maringngerrang/js/master/salju.js"></script> <script type="text/javascript"> snowStorm.snowColor = 'white'; snowStorm.flakesMaxActive = 150; snowStorm.useTwinkleEffect = true;</script>
+        
+    </body>
+</html>
