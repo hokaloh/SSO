@@ -35,19 +35,36 @@ def token_required(f):
     @wraps(f)
     def decorator(*args, **kwargs):
         token = None
-        if 'x-access-tokens' in request.headers:
-            token = request.headers['x-access-tokens']
-        #token = request.args.get('token')
+        if 'Authorization' in request.headers:
+            if request.headers['Authorization'].split(" ")[0] == 'Bearer':
+                token = request.headers['Authorization'].split(" ")[1]
+            else:
+                return {
+                "message": "Authentication Method is error!",
+                "data": None,
+                "error": "Unauthorized"
+            }, 401
+
+            print(token)
         if not token:
-            return jsonify({'message': 'a valid token is missing'})
+            return {
+                "message": "Authentication Token is missing!",
+                "data": None,
+                "error": "Unauthorized"
+            }, 401
         try:
             data = jwt.decode(token, app.config['SECRET_KEY'])
 
         except Exception as e:
-            print(e)
-            return jsonify({'message': 'token is invalid'})
- 
+            return {
+                "message": "Something went wrong",
+                "data": None,
+                "error": str(e)
+            }, 500
+            #return jsonify({'message': 'token is invalid'})
+        
         return f(data,*args, **kwargs)
+        #return f(*args, **kwargs)
     return decorator
 
 
